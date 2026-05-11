@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { label: "Features", href: "#features" },
   { label: "Q&A", href: "#faq" },
-  { label: "Demo", href: "/demo" },
+  { label: "Demo", href: "https://solupi-demo.vercel.app/" },
 ];
 
 export function BrandMasthead() {
@@ -135,7 +135,7 @@ export function BrandMasthead() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/demo"
+            href="https://solupi-demo.vercel.app/"
             className={cn(fancyButtonVariants({ variant: "neutral", size: "sm" }))}
           >
             Launch app
@@ -155,7 +155,7 @@ export function BrandMasthead() {
 
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
           <Link
-            href="#demo"
+            href="https://solupi-demo.vercel.app/"
             className={cn(fancyButtonVariants({ variant: "primary", size: "xl" }))}
           >
             Try the Demo
