@@ -1,0 +1,143 @@
+import Link from "next/link";
+import {
+  ArrowRight01Icon,
+  Mail01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+
+import { NoriWordmark } from "@/components/logos";
+import { FancyButton } from "@/components/ui/fancy-button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+const NAV: { heading: string; items: { label: string; href: string }[] }[] = [
+  {
+    heading: "Product",
+    items: [
+      { label: "App", href: "/demo" },
+      { label: "Features", href: "#features" },
+      { label: "Q&A", href: "#faq" },
+    ],
+  },
+  {
+    heading: "Build",
+    items: [
+      { label: "SolUPI API", href: "https://github.com/solana" },
+      { label: "Protocol", href: "https://solana.com" },
+    ],
+  },
+  {
+    heading: "Company",
+    items: [
+      { label: "About", href: "/about" },
+      { label: "Brand", href: "/brand" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
+  },
+];
+
+export function SiteFooter() {
+  return (
+    <footer className="relative border-t border-border bg-background">
+      <div className="mx-auto w-full max-w-6xl px-4 pt-14 pb-10 sm:px-8 sm:pt-20">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.1fr_2fr]">
+          <div className="flex flex-col gap-6">
+            <NoriWordmark />
+
+            <p className="max-w-sm text-[14px] leading-6 text-muted-foreground">
+              Lightning-fast consumer payments powered by Solana. Scan any QR, send instantly, and settle in seconds.
+            </p>
+
+            <form
+              className="flex w-full max-w-md flex-col gap-2"
+              action="#"
+              method="post"
+            >
+              <Label htmlFor="footer-email" hint="No spam, ever">
+                Get the launch note
+              </Label>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Input
+                  id="footer-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.xyz"
+                  autoComplete="email"
+                  leadingIcon={
+                    <HugeiconsIcon
+                      icon={Mail01Icon}
+                      size={16}
+                      strokeWidth={1.8}
+                    />
+                  }
+                />
+                <FancyButton
+                  type="submit"
+                  variant="primary"
+                  size="md"
+                  className="self-start sm:self-auto"
+                >
+                  Notify me
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={14}
+                    strokeWidth={2.2}
+                  />
+                </FancyButton>
+              </div>
+            </form>
+          </div>
+
+          <nav
+            aria-label="Footer"
+            className="grid grid-cols-2 gap-8 sm:grid-cols-3"
+          >
+            {NAV.map((col) => (
+              <div key={col.heading} className="flex flex-col gap-3">
+                <h3 className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  {col.heading}
+                </h3>
+                <ul className="flex flex-col gap-2.5">
+                  {col.items.map((it) => (
+                    <li key={it.label}>
+                      <Link
+                        href={it.href}
+                        className="link-underline text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                      >
+                        {it.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[12px] text-muted-foreground">
+            © {new Date().getFullYear()} SolUPI Labs. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-muted-foreground">
+            <Link
+              href="https://github.com/priyanshpatel18/nori"
+              className="link-underline transition-colors hover:text-primary"
+            >
+              GitHub
+            </Link>
+            <Link
+              href="https://docs.cloak.ag"
+              className="link-underline transition-colors hover:text-primary"
+            >
+              Docs
+            </Link>
+            <span className="font-mono text-[11px] text-muted-foreground">
+              v0.1 · mainnet
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

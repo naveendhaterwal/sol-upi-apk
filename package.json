@@ -1,0 +1,16 @@
+{
+  "name": "solupi-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && PORT=3011 cargo run",
+    "dev:frontend": "cd frontend && npx expo start --web --port 8085",
+    "dev:showcase": "cd showcase && npm run dev -- -p 3010",
+    "dev": "concurrently -c \"blue,green,magenta\" -n \"backend,frontend,showcase\" \"npm:dev:backend\" \"npm:dev:frontend\" \"npm:dev:showcase\"",
+    "dev:lite": "concurrently -c \"blue,magenta\" -n \"backend,showcase\" \"npm:dev:backend\" \"npm:dev:showcase\"",
+    "dev:mobile": "concurrently -c \"blue,yellow\" -n \"backend,expo\" \"npm:dev:backend\" \"cd frontend && npx expo start --port 8085\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,34 @@
+generator client {
+  provider = "cargo prisma"
+  output   = "../src/prisma.rs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  wallet_address String   @unique @db.VarChar(255)
+  private_key    String   @db.Text
+  created_at     DateTime @default(now()) @db.Timestamptz(6)
+  transactions   Transaction[]
+
+  @@map("users")
+}
+
+model Transaction {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  wallet_address String   @db.VarChar(255)
+  upi_id         String   @db.VarChar(255)
+  merchant_name  String   @db.VarChar(255)
+  amount_inr     Float
+  amount_crypto  Float
+  txn_hash       String   @unique @db.VarChar(255)
+  status         String   @default("success") @db.VarChar(50)
+  created_at     DateTime @default(now()) @db.Timestamptz(6)
+  user           User     @relation(fields: [wallet_address], references: [wallet_address], onDelete: Cascade)
+
+  @@map("transactions")
+}
