@@ -14,7 +14,7 @@ const NAV: { heading: string; items: { label: string; href: string }[] }[] = [
   {
     heading: "Product",
     items: [
-      { label: "App", href: "/demo" },
+      { label: "App", href: "https://solupi-demo.vercel.app/" },
       { label: "Features", href: "#features" },
       { label: "Q&A", href: "#faq" },
     ],
@@ -29,10 +29,10 @@ const NAV: { heading: string; items: { label: string; href: string }[] }[] = [
   {
     heading: "Company",
     items: [
-      { label: "About", href: "/about" },
-      { label: "Brand", href: "/brand" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: "About", href: "#" },
+      { label: "Brand", href: "#" },
+      { label: "Privacy", href: "#" },
+      { label: "Terms", href: "#" },
     ],
   },
 ];

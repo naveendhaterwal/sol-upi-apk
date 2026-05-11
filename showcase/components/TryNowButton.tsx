@@ -16,7 +16,7 @@ export function TryNowButton({ variant = "primary" }: { variant?: "primary" | "g
   };
 
   return (
-    <Link href="/demo" className={styles[variant]} style={bg[variant]} aria-label="Try SolUPI demo">
+    <Link href="https://solupi-demo.vercel.app/" className={styles[variant]} style={bg[variant]} aria-label="Try SolUPI demo">
       <Smartphone size={variant === "nav" ? 13 : 16} />
       Try Now
     </Link>

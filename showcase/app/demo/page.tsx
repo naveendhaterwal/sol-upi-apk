@@ -89,7 +89,7 @@ export default function DemoPage() {
         <div className="origin-center xl:origin-left" style={{ transform: 'scale(min(0.85, calc(75vh / 844), calc(90vw / 420)))' }}>
           <AndroidFrame>
             <iframe 
-              src="http://localhost:8085" 
+              src="https://solupi-demo.vercel.app/" 
               className="w-full h-full border-0"
               style={{ backgroundColor: "#080B1A" }}
               allow="camera; microphone; geolocation"

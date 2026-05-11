@@ -16,7 +16,7 @@ export function BrandClosing() {
           Experience SolUPI.
         </h2>
         <Link
-          href="/demo"
+          href="https://solupi-demo.vercel.app/"
           className={cn(fancyButtonVariants({ variant: "primary", size: "xl" }))}
         >
           Try the Demo
